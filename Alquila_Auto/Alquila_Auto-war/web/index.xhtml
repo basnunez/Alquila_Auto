@@ -23,9 +23,10 @@
         
         <!--clientesHeader-->
         <h:panelGrid columns="2" styleClass="panelGridCenter">
-           <h:graphicImage value="resources/images/cliente.png" />
+           <h:graphicImage id="cliente" value="resources/images/cliente.png" />
            <h1>Clientes</h1>
         </h:panelGrid>
+        
         <!--clientesHeader-->
         <!--clientes-->
         <h:panelGrid columns="4" styleClass="panelGridCenter">
@@ -59,12 +60,12 @@
         <br/>
         <!--OficinaHeader-->
         <h:panelGrid columns="2" styleClass="panelGridCenter">
-           <h:graphicImage value="resources/images/oficina.png" />
+           <h:graphicImage id="oficina" value="resources/images/oficina.png" />
            <h1>Oficinas</h1>
         </h:panelGrid>
         <!--OficinaHeader-->
         <!--oficinas-->
-        <h:panelGrid columns="4" styleClass="panelGridCenter">
+        <h:panelGrid id="oficinas" columns="4" styleClass="panelGridCenter">
         
         <h:form>
         <h:commandLink action="oficina">
@@ -95,7 +96,7 @@
         <br/>
         <!--vehiculosHeader-->
         <h:panelGrid columns="2" styleClass="panelGridCenter">
-           <h:graphicImage value="resources/images/vehiculo.png" />
+           <h:graphicImage id="vehiculo" value="resources/images/vehiculo.png" />
            <h1>Vehiculos</h1>
         </h:panelGrid>
         <!--vehiculosHeader-->
@@ -131,7 +132,7 @@
         <br/>
         <!--alquilerHeader-->
         <h:panelGrid columns="2" styleClass="panelGridCenter">
-           <h:graphicImage value="resources/images/alquilar.png" />
+           <h:graphicImage id="alquiler" value="resources/images/alquilar.png" />
            <h1>Alquiler</h1>
         </h:panelGrid>
         <!--alquilerHeader-->
@@ -160,7 +161,27 @@
         <!--alquileres-->
         <br/>
         <br/>
-            <h:graphicImage value="resources/images/logo-blanco.png" style="float:left;"/>
+        
+        <!--Scripts Iconos Grandes-->
+        <script>
+            $("#cliente").slideUp(100);
+            $("#cliente").slideDown(1500);
+            
+            $("#oficina").slideUp(100);
+            $("#oficina").slideDown(1500);
+            
+            $("#vehiculo").slideUp(100);
+            $("#vehiculo").slideDown(1500);
+            
+            $("#alquiler").slideUp(100);
+            $("#alquiler").slideDown(1500);
+            </script>
+        <!--Scripts Iconos Grandes-->
+            <h:graphicImage id="logo_inacap" value="resources/images/logo-blanco.png" style="float:left;"/>
+            <script>
+                $("#logo_inacap").fadeOut(1000);
+                $("#logo_inacap").fadeIn(3000);
+                </script>
     </h:body>
 </html>
 
