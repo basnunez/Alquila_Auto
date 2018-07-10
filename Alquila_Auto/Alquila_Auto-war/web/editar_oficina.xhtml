@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Oficina</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h2>Editar Oficina</h2>
+        <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                <h:outputText value="ID a editar"/>
+                <p:inputText value="#{oficinaBean.id_oficina}" required="true"/>
+                
+                <h:outputText value="Nueva Ciudad"/>
+                <p:inputText value="#{oficinaBean.ciudad}" required="true"/>
+                
+                <h:outputText value="Nueva Direccion"/>
+                <p:inputText value="#{oficinaBean.direccion}" required="true"/>
+                
+                <p:outputLabel for="codigo" value="Nuevo Codigo" />
+                <p:inputMask id="codigo" value="#{oficinaBean.codigo}" mask="aaa-aa" required="true"/>
+                               
+                <p:commandButton actionListener="#{oficinaBean.editar()}"
+                                 update="form"
+                                 value="Editar"/>    
+            </h:panelGrid>
+            <br/>
+        <p:dataTable var="car" value="#{oficinaBean.oficina}">
+
+            <p:column headerText="ID">
+                <h:outputText value="#{car.idOficina}" />
+            </p:column>
+            
+            <p:column headerText="Ciudad">
+                <h:outputText value="#{car.ciudad}" />
+            </p:column>
+
+            <p:column headerText="Direccion">
+                <h:outputText value="#{car.direccion}" />
+            </p:column>
+
+            <p:column headerText="Codigo Sucursal">
+                <h:outputText value="#{car.codigo}" />
+            </p:column>
+            
+            <f:facet name="footer">
+                    En total hay #{oficinaBean.oficina.size()} Oficinas.
+                </f:facet>
+
+        </p:dataTable>
+            
+            
+        </h:form>
+                <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

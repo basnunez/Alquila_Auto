@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Buscar Alquiler</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Buscar Alquiler</h2>
+        <p:dataTable value="#{alquilerBean.alquileres}" var="v" widgetVar="alquiler"
+                     emptyMessage="No hay registros" filteredValue="#{alquilerBean.busqueda}">
+
+             <p:column headerText="Fecha">
+                <h:outputText value="#{v.fecha}"/>
+            </p:column>
+
+            <p:column headerText="Precio">
+                <h:outputText value="#{v.precio}"/>
+            </p:column>
+
+
+            <p:column filterBy="#{v.fkRut.rut}" headerText="Rut"  filterMatchMode="contains">
+                <h:outputText value="#{v.fkRut.rut}"/>
+            </p:column>
+            
+            <p:column headerText="Apellido">
+                <h:outputText value="#{v.fkRut.apellido}"/>
+            </p:column>
+
+            <p:column headerText="Patente Auto">
+                <h:outputText value="#{v.fkPatente.patente}"/>
+            </p:column>
+            
+            <p:column filterBy="#{v.fkPatente.marca}" headerText="Marca y Modelo" filterMatchMode="contains">
+                <h:outputText value="#{v.fkPatente.marca}"/>
+            </p:column>
+            
+            <p:column filterBy="#{v.fkPatente.modelo}" headerText="Marca y Modelo" filterMatchMode="contains">
+                <h:outputText value="#{v.fkPatente.modelo}"/>
+            </p:column>
+            
+            <f:facet name="footer">
+                     Se han alquilado #{alquilerBean.alquileres.size()} Vehiculos.
+                </f:facet>
+            
+        </p:dataTable>
+             
+        </h:form>
+        <br/>
+        <h:form>
+            <h:commandLink action="index">
+                <h:graphicImage value="resources/images/atras2.png" />
+            </h:commandLink>
+        </h:form>
+        
+    </h:body>
+</html>
+

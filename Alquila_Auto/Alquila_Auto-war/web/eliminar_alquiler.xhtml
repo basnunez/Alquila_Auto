@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Eliminar Alquiler</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h2>Eliminar Alquiler</h2>
+        <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                <h:outputText value="ID"/>
+                <p:inputText value="#{alquilerBean.id_alquiler}" required="true"/>
+
+                <!--Eliminar Alquiler-->
+                <p:growl id="message" showDetail="true" />
+                <p:commandButton value="Eliminar" actionListener="#{alquilerBean.eliminar()}" update="form">
+                    <p:confirm header="Confirmacion" message="¿Está seguro de eliminar?"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" update="form" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" update="form"/>
+                </p:confirmDialog>
+                <!--Eliminar Alquiler-->      
+            </h:panelGrid>
+            <br/>
+            <p:dataTable value="#{alquilerBean.alquileres}" var="v" emptyMessage="No hay registros" >
+                
+                
+                <p:column headerText="ID">
+                    <h:outputText value="#{v.idAlquiler}"/>
+                </p:column>
+                
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{v.fecha}"/>
+                </p:column>
+                
+                
+                <p:column headerText="Precio">
+                    <h:outputText value="#{v.precio}"/>
+                </p:column>
+                
+                
+                <p:column headerText="Rut Cliente">
+                    <h:outputText value="#{v.fkRut.rut}"/>
+                </p:column>
+                
+                <p:column headerText="Patente Auto">
+                    <h:outputText value="#{v.fkPatente.patente}"/>
+                </p:column>
+                
+                <f:facet name="footer">
+                     Se han alquilado #{alquilerBean.alquileres.size()} Vehiculos.
+                </f:facet>
+                
+                
+            </p:dataTable>
+            
+            </h:form>
+                <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+        
+    </h:body>
+</html>
+

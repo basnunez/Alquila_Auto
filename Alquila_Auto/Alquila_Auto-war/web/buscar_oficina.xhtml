@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Buscar Oficina</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+
+
+        <h2>Buscar Oficina</h2>
+        <h:form>
+            
+            <p:dataTable var="car" value="#{oficinaBean.oficina}" widgetVar="clientes"
+                         emptyMessage="No hay registros" filteredValue="#{oficinaBean.busqueda}">
+
+                <p:column filterBy="#{car.ciudad}" headerText="Ciudad" filterMatchMode="contains">
+                    <h:outputText value="#{car.ciudad}" />
+                </p:column>
+
+                <p:column headerText="Dirección">
+                    <h:outputText value="#{car.direccion}" />
+                </p:column>
+
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{car.codigo}" />
+                </p:column>
+                
+                <f:facet name="footer">
+                    En total hay #{oficinaBean.oficina.size()} Oficinas.
+                </f:facet>
+
+            </p:dataTable>
+            
+        </h:form>    
+        <br/>
+        <h:form>
+            <h:commandLink action="index">
+                <h:graphicImage value="resources/images/atras2.png" />
+            </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

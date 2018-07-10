@@ -1,0 +1,162 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-jun-2018, 12:45:08
+    Author     : Baazt
+*/
+
+h2{
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Advent Pro', sans-serif;
+}
+.ui-selectonemenu{
+     width: 95% !important;
+     color:#ffdcdc;
+     border-radius: 16px 8px;
+     border-color: #e8e9a5;
+     opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+.ui-selectonemenu-label{
+    width: 95% !important;
+    color:#ffdcdc;
+    border-radius: 16px 6px;
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+
+.ui-selectonemenu-items{
+    color:black;
+    background: #88cfaf;
+}
+
+.ui-selectonemenu-trigger{
+    background: #fbf8e5;
+}
+
+.ui-selectonemenu-trigger:hover{
+    background: #b1b3a5;
+}
+
+/*Input text de los formularios*/
+.ui-inputfield{
+    background: #88cfaf;
+    color:black !important;
+    border-radius: 14px 7px;
+    border-color: #e8e9a5;
+    font-family: 'Advent Pro', sans-serif;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.ui-datatable-footer{
+    background:#384846;
+    color:#fbf8e5 !important;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.ui-datatable{
+    font-family: 'Advent Pro', sans-serif;
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+
+/*Tabla donde el indice es par*/
+.ui-datatable-even{
+    background: #fbf8e5;
+    color: #fa0e4f;
+}
+
+/*Tabla donde el indice es impar*/
+.ui-datatable-odd{
+    background: #b1b3a5;
+    color: #67022c;
+}
+
+.ui-button{
+    background: #af1352;
+    color: white;
+    border-radius: 7px 14px;
+    border-color: #840438;
+    font-family: 'Advent Pro', sans-serif;
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+
+.ui-button:hover{
+    background: #83d5b1;
+    color: black;
+    border-radius: 14px 7px;
+    border-color: #476882;
+    font-family: 'Advent Pro', sans-serif;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.ui-datepicker{
+    font-size: 18px;
+    font-family: 'Advent Pro', sans-serif;
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+
+body {
+    background-image: url("images/fondo1_opa.jpg");
+    background-position: right;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 20px;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: white;
+    
+}
+
+.panelGridCenter {
+    margin: 0 auto;
+}
+
+
+.ui-dialog{
+    text-align: center;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 20px;
+    border-radius: 20px;
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+}
+
+.ui-dialog-buttonpane{
+    background: #af1352;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+    text-align: center;
+}
+
+.ui-dialog-titlebar{
+    background: #af1352;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+    color:white;
+    text-align: center;
+    font-size: 25px;
+}
+
+.ui-dialog-titlebar-close{
+    background: #88cfaf;
+}
+
+.ui-dialog-titlebar-close:hover{
+    background: black;
+}
+
+.ui-dialog-content{
+    background: #88cfaf;
+    font-size: 20px;
+}

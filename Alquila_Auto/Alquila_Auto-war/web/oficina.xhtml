@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ingresar Oficina</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h2>Ingresar Oficina</h2>
+            <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                
+                <h:outputText value="Ciudad"/>
+                <p:inputText value="#{oficinaBean.ciudad}" required="true"/>
+                
+                <h:outputText value="Direccion"/>
+                <p:inputText value="#{oficinaBean.direccion}" required="true"/>
+                
+                <p:outputLabel for="codigo" value="Codigo" />
+                <p:inputMask id="codigo" value="#{oficinaBean.codigo}" mask="aaa-aa" required="true"/> 
+                <p:commandButton actionListener="#{oficinaBean.crear()}"
+                                 update="form"
+                                 value="crear"/>    
+            </h:panelGrid>
+                <br/>
+        
+            <p:dataTable var="car" value="#{oficinaBean.oficina}">
+                                     
+            <p:column headerText="Ciudad">
+                <h:outputText value="#{car.ciudad}" />
+            </p:column>
+
+            <p:column headerText="Direccion">
+                <h:outputText value="#{car.direccion}" />
+            </p:column>
+                
+                 <p:column headerText="Codigo Sucursal">
+                     <h:outputText value="#{car.codigo}"/>
+                </p:column>
+                
+                <f:facet name="footer">
+                    En total hay #{oficinaBean.oficina.size()} Oficinas.
+                </f:facet>
+
+
+        </p:dataTable>
+                <br/>
+           </h:form>     
+                
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

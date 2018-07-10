@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Agregar Cliente</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+        <link href="https://fonts.googleapis.com/css?family=Advent+Pro:200" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        
+        
+        <h2>Ingresar Cliente</h2>
+          
+        
+            <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+
+                <p:outputLabel for="rut" value="Rut (en caso de ser K reemplazar por 1)" />
+                <p:inputMask id="rut" value="#{clienteBean.rut}" mask="99.999.999-9" required="true"/>
+                
+                <h:outputText value="Nombre"/>
+                <p:inputText value="#{clienteBean.nombre}" required="true"/>
+                
+                <h:outputText value="Apellido"/>
+                <p:inputText value="#{clienteBean.apellido}" required="true"/>
+                
+                <p:commandButton actionListener="#{clienteBean.crear()}"
+                                 update="form"
+                                 value="crear"/>    
+            </h:panelGrid>
+            <br/>
+            <p:dataTable var="car" value="#{clienteBean.cliente}" emptyMessage="No hay registros" >
+            <p:column headerText="RUT">                
+                <h:outputText value="#{car.rut}" />
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{car.nombre}" />
+            </p:column>
+                
+                 <p:column headerText="Apellido">
+                     <h:outputText value="#{car.apellido}"/>
+                </p:column>
+                
+                <f:facet name="footer">
+                    En total hay #{clienteBean.cliente.size()} Clientes.
+                </f:facet>
+
+
+            </p:dataTable>
+            
+        </h:form>
+        <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+        
+    </h:body>
+</html>
+

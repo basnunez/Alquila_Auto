@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Arrienda Auto</title>
+        <h:outputStylesheet library="css" name="home.css"  />
+        <link href="https://fonts.googleapis.com/css?family=Advent+Pro:200" rel="stylesheet"/>
+    </h:head>
+        <h:body>
+        <h3>Bienvenido a Arrienda Auto</h3>
+        <!--clientesHeader-->
+        <h:panelGrid columns="2" styleClass="panelGridCenter">
+           <h:graphicImage value="resources/images/cliente.png" />
+           <h1>Clientes</h1>
+        </h:panelGrid>
+        <!--clientesHeader-->
+        <!--clientes-->
+        <h:panelGrid columns="4" styleClass="panelGridCenter">
+        
+        <h:form>
+        <h:commandLink action="cliente">
+        <h:graphicImage value="resources/images/agregar.png" />
+        </h:commandLink>
+        </h:form>
+            
+        <h:form>
+        <h:commandLink action="eliminar_cliente">
+        <h:graphicImage value="resources/images/eliminar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="editar_cliente">
+        <h:graphicImage value="resources/images/editar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="buscar_cliente">
+        <h:graphicImage value="resources/images/buscar.png" />
+        </h:commandLink>
+        </h:form>
+        </h:panelGrid>
+        <!--clientes-->
+        <br/>
+        <br/>
+        <!--OficinaHeader-->
+        <h:panelGrid columns="2" styleClass="panelGridCenter">
+           <h:graphicImage value="resources/images/oficina.png" />
+           <h1>Oficinas</h1>
+        </h:panelGrid>
+        <!--OficinaHeader-->
+        <!--oficinas-->
+        <h:panelGrid columns="4" styleClass="panelGridCenter">
+        
+        <h:form>
+        <h:commandLink action="oficina">
+        <h:graphicImage value="resources/images/agregar.png" />
+        </h:commandLink>
+        </h:form>
+            
+        <h:form>
+        <h:commandLink action="eliminar_oficina">
+        <h:graphicImage value="resources/images/eliminar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="editar_oficina">
+        <h:graphicImage value="resources/images/editar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="buscar_oficina">
+        <h:graphicImage value="resources/images/buscar.png" />
+        </h:commandLink>
+        </h:form>
+        </h:panelGrid>
+        <!--oficinas-->
+        <br/>
+        <br/>
+        <!--vehiculosHeader-->
+        <h:panelGrid columns="2" styleClass="panelGridCenter">
+           <h:graphicImage value="resources/images/vehiculo.png" />
+           <h1>Vehiculos</h1>
+        </h:panelGrid>
+        <!--vehiculosHeader-->
+        <!--vehiculos-->
+        <h:panelGrid columns="4" styleClass="panelGridCenter">
+        
+        <h:form>
+        <h:commandLink action="vehiculo">
+        <h:graphicImage value="resources/images/agregar.png"/>
+        </h:commandLink>
+        </h:form>
+            
+        <h:form>
+        <h:commandLink action="eliminar_vehiculo">
+        <h:graphicImage value="resources/images/eliminar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="editar_vehiculo">
+        <h:graphicImage value="resources/images/editar.png" />
+        </h:commandLink>
+        </h:form>
+            
+            <h:form>
+        <h:commandLink action="buscar_vehiculo">
+        <h:graphicImage value="resources/images/buscar.png" />
+        </h:commandLink>
+        </h:form>
+        </h:panelGrid>
+        <!--vehiculos-->
+        <br/>
+        <br/>
+        <!--alquilerHeader-->
+        <h:panelGrid columns="2" styleClass="panelGridCenter">
+           <h:graphicImage value="resources/images/alquilar.png" />
+           <h1>Alquiler</h1>
+        </h:panelGrid>
+        <!--alquilerHeader-->
+        <!--alquileres-->
+        <h:panelGrid columns="3" styleClass="panelGridCenter">
+        
+        <h:form>
+        <h:commandLink action="alquiler">
+        <h:graphicImage value="resources/images/agregar.png"/>
+        </h:commandLink>
+        </h:form>
+            
+        <h:form>
+        <h:commandLink action="eliminar_alquiler">
+        <h:graphicImage value="resources/images/eliminar.png" />
+        </h:commandLink>
+        </h:form>
+ 
+            
+            <h:form>
+        <h:commandLink action="buscar_alquiler">
+        <h:graphicImage value="resources/images/buscar.png" />
+        </h:commandLink>
+        </h:form>
+        </h:panelGrid>
+        <!--alquileres-->
+        <br/>
+        <br/>
+            <h:graphicImage value="resources/images/logo-blanco.png" style="float:left;"/>
+    </h:body>
+</html>
+

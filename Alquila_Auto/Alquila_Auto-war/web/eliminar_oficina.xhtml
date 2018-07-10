@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Eliminar Oficina</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h2>Eliminar Oficina</h2>
+        
+                <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                <h:outputText value="ID"/>
+                <p:inputText value="#{oficinaBean.id_oficina}" required="true"/>
+
+                <!--Eliminar Oficina-->
+                <p:growl id="message" showDetail="true" />
+                <p:commandButton value="Eliminar" actionListener="#{oficinaBean.eliminar()}" update="form">
+                    <p:confirm header="Confirmacion" message="¿Está seguro de eliminar?"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" update="form" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" update="form"/>
+                </p:confirmDialog>
+                <!--Eliminar Oficina-->  
+            </h:panelGrid>
+        
+<br/>
+        <!--Tabla-->
+
+        <p:dataTable var="car" value="#{oficinaBean.oficina}" widgetVar="clientes"
+                 emptyMessage="No hay registros" filteredValue="#{clienteBean.busqueda}">
+
+            <p:column headerText="ID">
+                <h:outputText value="#{car.idOficina}" />
+            </p:column>
+            
+            <p:column filterBy="#{car.ciudad}" headerText="Ciudad" filterMatchMode="contains">
+                <h:outputText value="#{car.ciudad}" />
+            </p:column>
+
+            <p:column headerText="Direccion">
+                <h:outputText value="#{car.direccion}" />
+            </p:column>
+
+            <p:column headerText="Codigo Sucursal">
+                <h:outputText value="#{car.codigo}" />
+            </p:column>
+            
+            <f:facet name="footer">
+                    En total hay #{oficinaBean.oficina.size()} Oficinas.
+                </f:facet>
+
+        </p:dataTable>
+</h:form>
+               <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form> 
+    </h:body>
+</html>
+

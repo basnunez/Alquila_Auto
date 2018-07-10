@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ingresar Vehiculo</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+
+        <h2>Ingresar Vehiculo</h2>
+        <h:form id="fv">
+
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+
+
+                <p:outputLabel for="patente" value="Patente" />
+                <p:inputMask id="patente" value="#{vehiculoBean.patente}" mask="aa**99" required="true"/>
+
+                <h:outputText value="Marca"/>
+                <p:inputText value="#{vehiculoBean.marca}" required="true"/>
+                <h:outputText value="Modelo"/>
+                <p:inputText value="#{vehiculoBean.modelo}" required="true"/>
+                Oficina
+                <br/>
+                <p:selectOneMenu value="#{vehiculoBean.oficina.idOficina}">
+                    <f:selectItems value="#{oficinaBean.oficina}" var="o" itemLabel="#{o.codigo}" itemValue="#{o.idOficina}"/>   
+                </p:selectOneMenu>
+
+                <h:outputText value=""/>
+                <p:commandButton actionListener="#{vehiculoBean.crear()}" value="Agregar Auto" style="center" update="fv"/>
+
+
+                <br/>
+            </h:panelGrid> 
+            <br/>
+            <br/>
+            <p:dataTable value="#{vehiculoBean.vehiculos}" var="v">
+                <br/>               
+                <p:column headerText="Patente">
+                    <h:outputText value="#{v.patente}"/>
+                </p:column>
+
+                <p:column headerText="Marca">
+                    <h:outputText value="#{v.marca}"/>
+                </p:column>
+
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{v.modelo}"/>
+                </p:column>
+
+                <p:column headerText="Oficina">
+                    <h:outputText value="#{v.fkOficina.codigo}"/>
+                </p:column>
+                
+                <p:column headerText="¿Disponible?">
+                    <p:graphicImage value="/resources/images/tick.png" rendered="#{v.estado}"/>
+                    <p:graphicImage value="/resources/images/no_tick.png"  rendered="#{not v.estado}"/>
+                </p:column>
+               
+
+                <f:facet name="footer">
+                    En total hay #{vehiculoBean.vehiculos.size()} Vehiculos.
+                </f:facet>
+
+            </p:dataTable>
+
+        </h:form>
+        <br/>
+        <h:form>
+            <h:commandLink action="index">
+                <h:graphicImage value="resources/images/atras2.png" />
+            </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

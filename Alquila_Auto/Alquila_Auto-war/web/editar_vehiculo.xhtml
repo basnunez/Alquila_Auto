@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Vehiculo</title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+
+        <h2>Editar Vehiculo</h2>
+        <h:form id="form">
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                <p:outputLabel for="patente" value="Patente" />
+                <p:inputMask id="patente" value="#{vehiculoBean.patente}" mask="aa**99" required="true"/>
+
+
+                <h:outputText value="Nueva Marca "/>
+                <p:inputText value="#{vehiculoBean.marca}" required="true"/>
+
+<h:outputText value="Nuevo Modelo "/>
+                <p:inputText value="#{vehiculoBean.modelo}" required="true"/>
+                <br/>
+                <p:selectOneMenu value="#{vehiculoBean.oficina.idOficina}">
+                    <f:selectItems value="#{oficinaBean.oficina}" var="o" itemLabel="#{o.codigo}" itemValue="#{o.idOficina}"/>   
+                </p:selectOneMenu>
+
+                <br/>
+                <h:panelGrid columns="2" styleClass="panelGridCenter">
+                <h:outputText value="¿Disponible?" />
+                <p:selectBooleanButton id="value1" value="#{vehiculoBean.estado}" onLabel="Si" offLabel="No" style="width:60px" />
+<br/>
+                </h:panelGrid>
+                <p:commandButton actionListener="#{vehiculoBean.editar()}"
+                                 update="form"
+                                 value="Editar"/>    
+            </h:panelGrid>
+            <br/>
+            <p:dataTable var="car" value="#{vehiculoBean.vehiculos}">
+
+                <p:column filterBy="#{car.patente}" headerText="Patente" filterMatchMode="contains">
+                    <h:outputText value="#{car.patente}" />
+            </p:column>
+
+                <p:column filterBy="#{car.marca}" headerText="Marca" filterMatchMode="contains">
+                <h:outputText value="#{car.marca}" />
+            </p:column>
+                
+                <p:column filterBy="#{car.modelo}" headerText="Marca" filterMatchMode="contains">
+                <h:outputText value="#{car.modelo}" />
+            </p:column>
+
+                <p:column headerText="Oficina">
+                    <h:outputText value="#{car.fkOficina.codigo}" />
+                </p:column>
+                
+                <p:column headerText="¿Disponible?">
+                    <p:graphicImage value="/resources/images/tick.png" rendered="#{car.estado}"/>
+                    <p:graphicImage value="/resources/images/no_tick.png"  rendered="#{not car.estado}"/>
+                </p:column>
+
+                
+                 <f:facet name="footer">
+                     En total hay #{vehiculoBean.vehiculos.size()} Vehiculos.
+                </f:facet>
+
+            </p:dataTable>
+
+
+        </h:form>
+        <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

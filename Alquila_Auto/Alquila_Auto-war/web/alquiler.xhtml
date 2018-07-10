@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Realizar Alquiler</title>
+        <h:outputStylesheet library="css" name="style2.css"  />
+    </h:head>
+    <h:body>
+        <h2>Realizar Alquiler</h2>
+        <h:form id="form">
+            
+            <h:panelGrid columns="1" styleClass="panelGridCenter">
+                <h4>Precio</h4>
+            <h:outputText value=""/>
+            <p:inputText value="#{alquilerBean.precio}" required="true"/>
+            
+            <p:outputLabel for="datetime" value="Fecha" />
+            <p:calendar id="datetime" value="#{alquilerBean.fecha}" pattern="MM/dd/yyyy HH:mm:ss" required="true"/>
+            
+            
+            <h4>Cliente</h4>
+            <p:selectOneMenu value="#{alquilerBean.cliente.rut}">
+                <f:selectItems value="#{clienteBean.cliente}" var="e" itemLabel="#{e.rut}" itemValue="#{e.rut}"/>
+            </p:selectOneMenu>
+                        
+            <h4>Patente</h4>
+            <p:selectOneMenu value="#{alquilerBean.vehiculo.patente}">
+                <f:selectItems value="#{vehiculoBean.vehiculos}" var="o" itemLabel="#{o.patente}" itemValue="#{o.patente}"/>   
+            </p:selectOneMenu>
+            <br/>
+            <h:message for="#{alquilerBean.vehiculo.patente}" errorClass="errorMessage" />
+            <h:outputText value=""/>
+            <p:commandButton actionListener="#{alquilerBean.crear()}" value="Agregar Alquiler" update="form"/>
+            
+            </h:panelGrid>
+            <h:messages styleClass="errorMessage" />
+            <br/>
+            <p:dataTable value="#{alquilerBean.alquileres}" var="v" emptyMessage="No hay registros" >
+                
+                
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{v.fecha}"/>
+                </p:column>
+                
+                
+                <p:column headerText="Precio">
+                    <h:outputText value="#{v.precio}"/>
+                </p:column>
+                
+                <p:column headerText="Rut Cliente">
+                    <h:outputText value="#{v.fkRut.rut}"/>
+                </p:column>
+                
+                <p:column headerText="Apellido Cliente">
+                    <h:outputText value="#{v.fkRut.apellido}"/>
+                </p:column>
+                
+                <p:column headerText="Patente Auto">
+                    <h:outputText value="#{v.fkPatente.patente}"/>
+                </p:column>
+                
+                <p:column headerText="Modelo Auto">
+                    <h:outputText value="#{v.fkPatente.modelo}"/>
+                </p:column>
+                
+                 <f:facet name="footer">
+                     Se han alquilado #{alquilerBean.alquileres.size()} Vehiculos de un total de #{vehiculoBean.vehiculos.size()}
+                </f:facet>
+                
+                
+            </p:dataTable>
+        
+        </h:form>    
+        <br/>
+        <h:form>
+        <h:commandLink action="index">
+        <h:graphicImage value="resources/images/atras2.png" />
+        </h:commandLink>
+        </h:form>
+        
+        
+    </h:body>
+</html>
+
