@@ -8,7 +8,19 @@
         <link href="https://fonts.googleapis.com/css?family=Advent+Pro:200" rel="stylesheet"/>
     </h:head>
         <h:body>
-        <h3>Bienvenido a Arrienda Auto</h3>
+        <h3 id="bienvenido">Bienvenido a Arrienda Auto</h3>
+        
+        <!--Script-->
+        <script type="text/javascript"
+                src="https://code.jquery.com/jquery-2.1.0.js">
+        </script>
+        <script>
+       $("#bienvenido").fadeOut(5);
+       $("#bienvenido").fadeIn(3000);
+        </script>
+
+        <!--Script-->
+        
         <!--clientesHeader-->
         <h:panelGrid columns="2" styleClass="panelGridCenter">
            <h:graphicImage value="resources/images/cliente.png" />
